@@ -1,3 +1,2 @@
-Check [here](https://github.com/diegonetto/generator-ionic) for lifecicle and docs
-
+Check [here](https://github.com/diegonetto/generator-ionic) for features, workflow and docs
 
