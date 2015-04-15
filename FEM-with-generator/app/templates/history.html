@@ -1,0 +1,9 @@
+<ion-view view-title="Facturas">
+  <ion-content>
+    <ion-list>
+      <ion-item ng-repeat="ticket in history" href="#/app/history-ticket/{{ticket.id}}">
+        {{ticket.client.name}} - {{ticket.CAE}}
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>
