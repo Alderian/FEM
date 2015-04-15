@@ -1,5 +1,6 @@
-angular.module('starter.controllers', [])
+angular.module('femApp.controllers', [])
 
+// -- HOME & Login --
 .controller('AppCtrl', function($scope, $ionicModal, $timeout) {
   // Form data for the login modal
   $scope.loginData = {};
@@ -33,8 +34,28 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('PlaylistsCtrl', function($scope) {
-  $scope.playlists = [
+// -- TICKET --
+.controller('TicketCtrl', function($scope, $stateParams) {
+})
+
+// -- HISTORY --
+.controller('HistoryCtrl', function($scope) {
+  $scope.history = [
+    { client: { name: 'Reggae', id: 1 }, CAE: "12345" },
+    { client: { name: 'Chill', id: 2 }, CAE: "12345" },
+    { client: { name: 'Dubstep', id: 3 }, CAE: "12345" },
+    { client: { name: 'Indie', id: 4 }, CAE: "12345" },
+    { client: { name: 'Rap', id: 5 }, CAE: "12345" },
+    { client: { name: 'Cowbell', id: 6 }, CAE: "12345" }
+  ];
+})
+
+.controller('HistoryTicketCtrl', function($scope, $stateParams) {
+})
+
+// -- CLIENTS --
+.controller('ClientsCtrl', function($scope) {
+  $scope.clients = [
     { title: 'Reggae', id: 1 },
     { title: 'Chill', id: 2 },
     { title: 'Dubstep', id: 3 },
@@ -44,5 +65,13 @@ angular.module('starter.controllers', [])
   ];
 })
 
-.controller('PlaylistCtrl', function($scope, $stateParams) {
-});
+.controller('ClientCtrl', function($scope, $stateParams) {
+})
+
+// -- COFIGURATION --
+.controller('ConfigCtrl', function($scope, $stateParams) {
+})
+
+// -------------------------
+
+;
