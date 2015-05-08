@@ -54,7 +54,7 @@ angular.module('femApp.controllers', [])
 })
 
 // -- CLIENTS --
-.controller('ClientsCtrl', function($scope) {
+.controller('ClientsCtrl', ['$scope','Client',function($scope,Client){
   $scope.clients = [
     { title: 'Reggae', id: 1 },
     { title: 'Chill', id: 2 },
@@ -63,10 +63,41 @@ angular.module('femApp.controllers', [])
     { title: 'Rap', id: 5 },
     { title: 'Cowbell', id: 6 }
   ];
+
+
+      Client.getAll().success(function(data){
+          $scope.clients=data.results;
+      });
+
+      $scope.onClientDelete=function(client){
+          Client.delete(client.objectId);
+          $scope.client.splice($scope.client.indexOf(client),1);
+      }
+
 })
 
-.controller('ClientCtrl', function($scope, $stateParams) {
-})
+.controller('ClientNewCtrl',['$scope','Client','$state',function($scope,Client,$state){
+
+    $scope.client={};
+
+    $scope.create=function(){
+        Client.create({content:$scope.client.content}).success(function(data){
+            $state.go('app.clients');
+        });
+    }
+
+
+}]).controller('ClientEditCtrl',['$scope','Client','$state','$stateParams',function($scope,Client,$state,$stateParams){
+
+    $scope.client={id:$stateParams.id,content:$stateParams.content};
+
+    $scope.edit=function(){
+        Client.edit($scope.client.id,{content:$scope.client.content}).success(function(data){
+            $state.go('app.clients');
+        });
+    }
+
+}])
 
 // -- COFIGURATION --
 .controller('ConfigCtrl', function($scope, $stateParams) {

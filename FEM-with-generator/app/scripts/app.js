@@ -118,6 +118,13 @@ angular.module('femApp', ['ionic', 'femApp.controllers'])
     cache:false // Will ask for objects again
   })
 
+  .state('app.clientCreate', {
+    url: "/client/new",
+    templateUrl: "templates/clientNew.html",
+    controller: 'ClientNewCtrl'
+    }
+  })
+
   .state('app.clientEdit', {
     url: "/client/edit/:clientId/:name/:cuit/:email",
     templateUrl: "templates/clientEdit.html",
